@@ -13,7 +13,7 @@ pip install -r requirements.txt
 3. Please fill up the inputs as per your requirement (explained in the next section)
 4. Run the script using the following command:
 ```
-python checkVaccineAvailability.py
+python checkVaccineByPincode.py
 ```
 
 ## Inputs
