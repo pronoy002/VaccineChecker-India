@@ -13,7 +13,7 @@ pip install -r requirements.txt
 3. Please fill up the inputs as per your requirement (explained in the next section)
 
 ## Inputs
-The inputs (along with the explanation) to the script are collected as follows
+The inputs to the script is given at the beginning of the script and can be edited directly. The following are the details of the input parameters:
 - "pin_codes" : Pin codes you would want to search for (Python list)
 - "vaccine" : Vaccine name(s) you are looking for (Python list)
 - "telegramToken" : Telegram HTTP API token for Bot (Python string). Please refer to this [YouTube video](https://www.youtube.com/watch?v=ps1yeWwd6iA) in order to fetch the values for your setup)
