@@ -11,6 +11,10 @@ This script will be helpful for the people who are unable to regularly check up 
 pip install -r requirements.txt
 ```
 3. Please fill up the inputs as per your requirement (explained in the next section)
+4. Run the script using the following command:
+```
+python checkVaccineAvailability.py
+```
 
 ## Inputs
 The inputs to the script is given at the beginning of the script and can be edited directly. The following are the details of the input parameters:
