@@ -20,6 +20,7 @@ The inputs (along with the explanation) to the script are collected as follows
 - "chat_id" : Telegram chat ID of the group (Python String). Refer to the above video for fetching this value.  
 - "days" : No of days from today you want the data for (Python int)
 - "sleep_time" : Message interval in seconds (Python int)
+- "age" : Age bracket you are looking for (Python int). The script will display data for ages < age
 
 ### Caveats/Caution
 - This script uses an infinite loop in python. 

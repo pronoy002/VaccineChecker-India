@@ -7,12 +7,13 @@ import requests
 import time
 
 ############################################################################################################
-pin_codes = [560037, 560048, 560066, 560077, 560067]  # Pin codes you would want to search for
+pin_codes = [560037, 560048, 560066, 560077, 560067, 110019, 110017]  # Pin codes you would want to search for
 vaccine = ["covaxin", "covishield"]  # Vaccine name(s) you are looking for
-telegramToken = ""  # Telegram HTTP API token for Bot
-chat_id = ""  # Telegram chat ID of the group including the '-'
-days = 10  # No of days from today you want the data for
+telegramToken = "asa1234"  # Telegram HTTP API token for Bot
+chat_id = "-523253223"  # Telegram chat ID of the group
+days = 5  # No of days from today you want the data for
 sleep_time = 1000  # Message interval in seconds
+age = 45  # Age bracket you are looking for
 ############################################################################################################
 
 logging.basicConfig(filename="Vaccine_availability.log", filemode='w',
@@ -20,7 +21,13 @@ logging.basicConfig(filename="Vaccine_availability.log", filemode='w',
 
 
 def run_cowin_api(url):
-    r = requests.get(url, headers={"Accept": "application/json", "Accept-Language": "hi_IN"})
+    for i in range(10):
+        r = requests.get(url, headers={"Accept": "application/json", "Accept-Language": "hi_IN"})
+        if r.status_code != 200:
+            logging.error("API Failed - " + str(r.status_code))
+            time.sleep(10)
+        else:
+            break
     return r.text
 
 
@@ -47,7 +54,7 @@ while True:
                 continue
             message.append("----" + str(pin) + "----")
             for sess in resp["sessions"]:
-                if str(sess["vaccine"]).lower() in vaccine:
+                if (str(sess["vaccine"]).lower() in vaccine) and (age >= sess["min_age_limit"]):
                     message.append("Name : " + sess["name"])
                     message.append("Paid : " + sess["fee_type"] + " ; " + sess["fee"])
                     message.append("Vaccine : " + sess["vaccine"])
